@@ -115,6 +115,10 @@ routes.get("/coaches", async (req: Request, res: Response) => {
   const time = filters.time as string | undefined;
   const timeInMinutes = time ? convertHourToMinutes(time) : undefined; // Converte apenas se 'time' estiver definido
 
+  console.log(subject);
+  console.log(week_day);
+  console.log(timeInMinutes);
+
   try {
     const query = db("coaches")
       .join("classes", "classes.coach_id", "=", "coaches.id")
